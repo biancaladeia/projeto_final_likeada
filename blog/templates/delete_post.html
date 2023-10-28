@@ -1,0 +1,11 @@
+<!-- templates/blog/delete_post.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Confirmar Exclusão</h2>
+    <p>Tem certeza de que deseja excluir "{{ post.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Excluir</button>
+    </form>
+{% endblock %}

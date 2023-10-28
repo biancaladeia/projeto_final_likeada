@@ -1,0 +1,19 @@
+<!-- templates/blog/search_results.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Resultados da Pesquisa</h1>
+<p>Você procurou por: {{ query }}</p>
+
+<ul>
+    {% for post in results %}
+        <li>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p>Autor: {{ post.author }}</p>
+            <p>Data de Criação: {{ post.created_at }}</p>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

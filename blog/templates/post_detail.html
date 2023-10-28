@@ -1,0 +1,29 @@
+<!-- templates/blog/post_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post">
+        <h2>{{ post.title }}</h2>
+        <p>Por {{ post.author }} em {{ post.created_at }}</p>
+        <p>{{ post.description }}</p>
+        <p>{{ post.content }}</p>
+
+        {% if user.is_authenticated and user == post.author %}
+            <a href="{% url 'edit_post' id=post.id %}">Editar</a>
+            <a href="{% url 'delete_post' id=post.id %}">Excluir</a>
+
+            <a href="{% url 'add_comment_to_post' post.id %}">Adicionar Comentário</a>
+
+            <h2>Comentários</h2>
+            <ul>
+                {% for comment in post.comments.all %}
+                    <li>
+                        <p>{{ comment.content }}</p>
+                        <p>Por: {{ comment.author }}</p>
+                        <p>Data: {{ comment.created_at }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
