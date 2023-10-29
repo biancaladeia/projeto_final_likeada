@@ -1,11 +1,20 @@
 <!-- templates/blog/edit_post.html -->
 {% extends 'base.html' %}
+{% load bootstrap %}
 
+{% block title %}Editar o post{% endblock %}
 {% block content %}
-    <h2>Editar Postagem</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar Alterações</button>
-    </form>
+    <div class="container">
+        <h2>Editar o post</h2>
+        <div>
+            <form action="." method="POST">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <input type="submit" class="btn btn-sm btn-outline-secondary">
+            </form>
+        </div>
+        <div>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.history.back()">Cancelar</button>
+        </div>
+    </div>
 {% endblock %}

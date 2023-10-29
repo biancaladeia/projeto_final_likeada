@@ -2,17 +2,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <h1>Últimas Postagens</h1>
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">    
+    <h2 class="display-3">Postagens</h2>
 
     {% for post in posts %}
-        <!-- Dentro do loop de postagens -->
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
-                <p class="card-text">{{ post.description }}</p>
-                <a href="{% url 'post_detail' id=post.id %}" class="btn btn-primary">Leia Mais</a>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="display-6">{{ post.title }}</h5>
+                    <p class="lead my-3">{{ post.description }}</p>
+                    <a href="{% url 'post_detail' id=post.id %}" class="lead mb-0 text-body-emphasis fw-bold">Leia Mais</a>
+                </div>
             </div>
+        {% endfor %}
         </div>
-    {% endfor %}
+    
+        <nav class="blog-pagination" aria-label="Pagination">
+            <a class="btn btn-outline-secondary rounded-pill" href="#">Older</a>
+            <a class="btn btn-outline-secondary rounded-pill" href="#">Newer</a>
+        </nav>
+
 {% endblock %}

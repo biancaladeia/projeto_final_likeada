@@ -1,11 +1,21 @@
 <!-- templates/blog/delete_post.html -->
 {% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %}Excluir o post{% endblock %}
 
 {% block content %}
-    <h2>Confirmar Exclusão</h2>
-    <p>Tem certeza de que deseja excluir "{{ post.title }}"?</p>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Excluir</button>
-    </form>
+    <div class="container">
+        <h2>Confirmar Exclusão</h2>
+        <div>
+            <p class="lead my-3">Tem certeza de que deseja excluir "{{ post.title }}"?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-outline-secondary">Excluir</button>
+            </form>
+        </div>
+        <div>
+            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.history.back()">Cancelar</button>
+        </div>
+    </div>
 {% endblock %}

@@ -9,21 +9,25 @@
         <p>{{ post.content }}</p>
 
         {% if user.is_authenticated and user == post.author %}
-            <a href="{% url 'edit_post' id=post.id %}">Editar</a>
-            <a href="{% url 'delete_post' id=post.id %}">Excluir</a>
-
-            <a href="{% url 'add_comment_to_post' post.id %}">Adicionar Comentário</a>
-
-            <h2>Comentários</h2>
-            <ul>
-                {% for comment in post.comments.all %}
-                    <li>
-                        <p>{{ comment.content }}</p>
-                        <p>Por: {{ comment.author }}</p>
-                        <p>Data: {{ comment.created_at }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'edit_post' id=post.id %}">Editar</a>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'delete_post' id=post.id %}">Excluir</a>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'add_comment_to_post' post.id %}">Adicionar Comentário</a>
+<br><br>
+            <div class="comments">
+                <br><h2 class="display-6">Comentários</h2> <br>
+            <div>
+                <ul class="list-unstyled ">
+                    {% for comment in post.comments.all %}
+                        <li class="comment bg-body-tertiary rounded border p-3 mb-3">
+                            <p class= "lead my-4">{{ comment.content }}</p>
+                            <p>Por: {{ comment.author }}</p>
+                            <p>Data: {{ comment.created_at }}</p>
+                        </li><br>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
+            </div>
     </div>
 {% endblock %}
+
