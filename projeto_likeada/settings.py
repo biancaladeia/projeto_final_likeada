@@ -27,7 +27,12 @@ SECRET_KEY = 'django-insecure-kxne)940hyxe2)bp5n+2ow@phh+@n33gx)wq=ev#2ll3!%b3aj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'app-blog-womakerscode-a990dd38e810.herokuapp.com',
+    'app-blog-womakerscode.herokuapp.com',  # Adicione outras variantes, se necessário
+    'localhost',  # Para desenvolvimento local
+]
+
 
 
 # Application definition
