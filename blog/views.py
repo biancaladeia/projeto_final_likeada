@@ -2,12 +2,11 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
-from .forms import PostForm, SearchForm, CommentForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
-from .forms import CustomLoginForm, RegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib import messages
+from .forms import PostForm, SearchForm, CommentForm, CustomLoginForm, RegistrationForm
 
 def home(request):
     search_form = SearchForm()
@@ -91,14 +90,16 @@ def user_login(request):
         form = CustomLoginForm(request.POST)
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(request, username=username, password=password)  # Verifica se o usuário existe
+        user = authenticate(request, username=username, password=password)
+
         if user is not None:
             auth_login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Usuário ou senha inválidos')
+            messages.error(request, 'Invalid username or password')
     else:
         form = CustomLoginForm()
+
     return render(request, 'login.html', {'form': form})
 
 @login_required
