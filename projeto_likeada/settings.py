@@ -137,3 +137,6 @@ AUTHENTICATION_BACKENDS = [
 
 LOGOUT_REDIRECT_URL = '/'  # ou a URL para onde você deseja redirecionar após o logout
 LOGIN_REDIRECT_URL = '/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
