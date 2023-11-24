@@ -2,17 +2,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">    
-    <h2 class="display-3">Postagens</h2>
-
-    {% for post in posts %}
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"> 
+        {% for post in posts %}
             <div class="card">
                 <div class="card-body">
                     <h5 class="display-6">{{ post.title }}</h5>
                     <p class="lead my-3">{{ post.description }}</p>
-                    <a href="{% url 'post_detail' id=post.id %}" class="lead mb-0 text-body-emphasis fw-bold">Leia Mais</a>
+                    <a href="{% url 'post_detail' id=post.id %}" class="lead my-4 text-body-emphasis">Leia Mais</a>
                 </div>
-            </div>
+            </div> <br>
         {% endfor %}
     </div>
     
