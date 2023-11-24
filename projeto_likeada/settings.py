@@ -146,3 +146,8 @@ LOGIN_REDIRECT_URL = '/'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Adicione esta linha no início da lista
+    
+]
