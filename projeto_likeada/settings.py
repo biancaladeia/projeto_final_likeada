@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'app-blog-womakerscode-a990dd38e810.herokuapp.com',
     'app-blog-womakerscode.herokuapp.com',  # Adicione outras variantes, se necessário
     'localhost',  # Para desenvolvimento local
+    '127.0.0.1'
 ]
 
 
