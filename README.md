@@ -1,4 +1,4 @@
-#LIKEADA Blog
+# LIKEADA Blog
 
 Este projeto representa o trabalho final do Bootcamp da WoMakersCode de Desenvolvimento Back-end com Python e Django. O objetivo é criar um sistema de blog robusto utilizando tecnologias como GitHub, HTML5, CSS3, Bancos de Dados e o Framework Django.
 
